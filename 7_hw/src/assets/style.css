@@ -14,7 +14,6 @@ body {
     padding: 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 h1 {
     color: #ff0055;
     text-align: center;
@@ -61,8 +60,6 @@ textarea {
     font-size: 12px; 
     border-radius: 3px;
 }
-
-
 .status-done {
     background-color: #28a745;
     color: white;

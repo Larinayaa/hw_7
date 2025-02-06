@@ -4,20 +4,16 @@ const Task = ({ name, index, tasks, setTasks }) => {
     const [isEdit, setIsEdit] = useState(false);
     const [updatedTask, setUpdatedTask] = useState(name);
     const [isCompleted, setIsCompleted] = useState(false);
-
     const textRef = React.useRef(); 
-
     const handleClickSave = () => {
         setUpdatedTask(textRef.current.value);
         setIsEdit(false);
     };
-
     const handleClickDelete = () => {
         const tasksCopy = [...tasks];
         tasksCopy.splice(index, 1);
         setTasks(tasksCopy);
     };
-
     return (
         <div className="task">
             <input 
