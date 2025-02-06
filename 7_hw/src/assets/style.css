@@ -1,5 +1,5 @@
 body {
-    background-image: url('./k1.jpg');
+    background-image: url('../src/assets/k1.jpg');
     background-size: cover;
     background-position: center;
     min-height: 100vh; 
@@ -7,25 +7,50 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .container {
     background-color: rgba(255, 255, 255, 0.8); 
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 h1 {
     color: #ff0055;
     text-align: center;
 }
+
 button {
     margin-top: 10px;
+    background-color: #d61fd6;
+    color: white;
 }
+
 textarea {
     width: 100%;
     height: 100px;
     margin-bottom: 10px;
 }
-button {
-    background-color: #d61fd6;
-    color: white;
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+.task-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
 }

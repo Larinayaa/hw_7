@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import Task from "./Task";
-import "../assets/style.css"; 
+import "../assets/style.css";
 
 const TasksList = () => {
     const initialState = ["Задача 1", "Задача 2", "Задача 3"];
@@ -8,10 +8,11 @@ const TasksList = () => {
     const newTaskRef = useRef();
 
     const handleClickAdd = () => {
-        const tasksCopy = [...tasks];
-        tasksCopy.push(newTaskRef.current.value);
-        setTasks(tasksCopy);
-        newTaskRef.current.value = "";
+        const newTask = newTaskRef.current.value.trim();
+        if (newTask) {
+            setTasks([...tasks, newTask]);
+            newTaskRef.current.value = "";
+        }
     };
 
     return (

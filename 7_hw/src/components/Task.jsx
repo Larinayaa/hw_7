@@ -1,9 +1,11 @@
-import { useState, useRef } from "react";
+import React from "react";
 
 const Task = ({ name, index, tasks, setTasks }) => {
-    const [isEdit, setIsEdit] = useState(false);
-    const [updatedTask, setUpdatedTask] = useState(name);
-    const textRef = useRef(); 
+    const [isEdit, setIsEdit] = React.useState(false);
+    const [updatedTask, setUpdatedTask] = React.useState(name);
+    const [isCompleted, setIsCompleted] = React.useState(false);
+
+    const textRef = React.useRef(); 
 
     const handleClickSave = () => {
         setUpdatedTask(textRef.current.value);
@@ -16,17 +18,24 @@ const Task = ({ name, index, tasks, setTasks }) => {
         setTasks(tasksCopy);
     };
 
-    return isEdit ? (
-        <>
-            <textarea ref={textRef} defaultValue={updatedTask}></textarea>
-            <button onClick={handleClickSave}>Сохранить</button>
-        </>
-    ) : (
-        <>
-            <p>{updatedTask}</p>
+    return (
+        <div className="task">
+            <input 
+                type="checkbox" 
+                checked={isCompleted} 
+                onChange={() => setIsCompleted(!isCompleted)} 
+            />
+            {isEdit ? (
+                <>
+                    <textarea ref={textRef} defaultValue={updatedTask}></textarea>
+                    <button onClick={handleClickSave}>Сохранить</button>
+                </>
+            ) : (
+                <p className={isCompleted ? "completed" : ""}>{updatedTask}</p>
+            )}
             <button onClick={() => setIsEdit(true)}>Редактировать</button>
             <button onClick={handleClickDelete}>Удалить</button>
-        </>
+        </div>
     );
 };
 
