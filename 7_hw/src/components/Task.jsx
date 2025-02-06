@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Task = ({ name, index, tasks, setTasks }) => {
-    const [isEdit, setIsEdit] = React.useState(false);
-    const [updatedTask, setUpdatedTask] = React.useState(name);
-    const [isCompleted, setIsCompleted] = React.useState(false);
+    const [isEdit, setIsEdit] = useState(false);
+    const [updatedTask, setUpdatedTask] = useState(name);
+    const [isCompleted, setIsCompleted] = useState(false);
 
     const textRef = React.useRef(); 
 
@@ -33,6 +33,9 @@ const Task = ({ name, index, tasks, setTasks }) => {
             ) : (
                 <p className={isCompleted ? "completed" : ""}>{updatedTask}</p>
             )}
+            <span className={`status ${isCompleted ? "status-done" : "status-pending"}`}>
+                {isCompleted ? "Выполнено" : "Не выполнено"}
+            </span>
             <button onClick={() => setIsEdit(true)}>Редактировать</button>
             <button onClick={handleClickDelete}>Удалить</button>
         </div>
